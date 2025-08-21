@@ -107,14 +107,18 @@ This flow is currently manual and error-prone. Your solution should automate and
 
 ## Assessment Criteria
 
-- **Code Quality:** Clean, reusable code  
-- **UI/UX Design:** Simple, intuitive role-based views  
-- **Authentication & RBAC:** Proper access controls per role  
-- **Problem Solving:** Handling edge cases (duplicate requests, negative stock, van limits)  
-- **Real-World Fit:** Reflects actual FMCG workflows in Kenya  
-- **Scaling & Optimization:** Potential to grow beyond prototype  
+| Category | Criteria | Description / Indicators | Weight (%) |
+|----------|---------|-------------------------|------------|
+| **Technical Skills (60%)** | Innovation & Creativity | - Originality of the solution<br>- Novel approach to problem<br>- Creative use of tools/resources | 20% |
+| | Technical Execution | - Functionality of prototype/solution<br>- Accuracy & reliability of outputs<br>- Efficiency (time/resources used) | 20% |
+| | Problem-Solving Ability | - Clarity in identifying the problem<br>- Relevance of solution to real-world needs<br>- Practicality & scalability | 20% |
+| **Soft Skills (40%)** | Teamwork & Collaboration | - Equal contribution from members<br>- Conflict management<br>- Evidence of collective decision-making | 15% |
+| | Communication | - Clarity of ideas shared<br>- Use of simple and professional language<br>- Active listening & engagement | 10% |
+| | Leadership & Initiative | - Task delegation & accountability<br>- Proactive problem-solving<br>- Encouraging team participation | 10% |
+| | Presentation & Confidence | - Structured, engaging presentation<br>- Confidence in delivery<br>- Handling Q&A effectively | 5% |
+| **TOTAL** |  |  | 100% |
 
-**Bonus:** Real-time stock updates (websockets, alerts, notifications)
+**Scoring:** Each criterion is scored 1–5. Weighted scores are calculated based on the weight percentage, contributing to the **Final % Score**.
 
 ---
 
