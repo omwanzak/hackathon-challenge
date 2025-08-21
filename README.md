@@ -1,13 +1,16 @@
 # Hackathon Challenge: Stock Movement & Requisition Tracker
 
 **Organized by:** Solutech Limited in collaboration with Tech Sisters Kenya  
-**Format:** 2 to 3-hour CSR Challenge | Teams of 3 Tech Sisters
+**Format:** 3-hour CSR Challenge | Teams of 3 Tech Sisters  
+**Presentation/Demo:** After the coding session  
 
 ---
 
 ## Getting Started
 
-**Important:** Please **fork this repository** before starting the challenge. This allows you to work independently without affecting the main repository and submit your solution via your forked repo.
+**Important:** The **team should fork this repository** before starting the challenge.  
+- This allows your team to work independently without affecting the main repository.  
+- All team members should collaborate on the forked repo and submit your solution from there.  
 
 ---
 
@@ -102,12 +105,12 @@ This flow is currently manual and error-prone. Your solution should automate and
 
 ---
 
-## Deliverables (within 4 hours)
+## Deliverables (within 3 hours)
 
 - Requisition flow: Van Rep → Distributor → stock updated  
 - Stock movement logs  
 - Manufacturer dashboard with summary view  
-- Presentation/demo flow
+- Presentation/demo flow (after coding session)
 
 ---
 
@@ -128,23 +131,25 @@ This flow is currently manual and error-prone. Your solution should automate and
 
 ---
 
-## Suggested 2-Hour Timeline (Can be stretched to 3 hours)
+## Suggested 3-Hour Coding Timeline
 
 | Time | Activity |
 |------|---------|
-| 0:00 – 0:10 | Team Planning: Assign roles & presentation lead, agree on workflows |
-| 0:10 – 0:30 | Project Setup: Initialize repo/project, seed data (users, roles, products, stock) |
-| 0:30 – 1:10 | Core Feature Development: Van Rep requisition flow, Distributor approval/rejection, stock updates |
-| 1:10 – 1:35 | Dashboard Implementation: Manufacturer stock summary & requisitions |
-| 1:35 – 1:50 | Testing & Debugging: Each member tests her assigned role, validate end-to-end workflow |
-| 1:50 – 2:00 | Demo Prep: Presentation Lead (or all members) practice demo flow, polish UX & stock movement logs |
+| 0:00 – 0:15 | Team Planning: Assign roles (Van Rep, Distributor, Manufacturer) & Presentation Lead, agree on workflows |
+| 0:15 – 0:35 | Project Setup: Initialize repo/project, seed data (users, roles, products, stock) |
+| 0:35 – 1:25 | Core Feature Development: Van Rep requisition flow, Distributor approval/rejection, stock updates |
+| 1:25 – 2:05 | Dashboard Implementation: Manufacturer stock summary & requisitions |
+| 2:05 – 2:40 | Testing & Debugging: Each member tests her assigned role, validate end-to-end workflow |
+| 2:40 – 3:00 | Final Touches: Polish UX, stock movement logs, prepare for presentation |
 
 ---
 
-## Demo Flow for Judges
+## Presentation/Demo Flow (after coding session)
 
 By the end, judges should be able to:
 
 1. Log in as Van Rep (Alex) → Create requisition  
 2. Log in as Distributor (Rayyidh) → Approve request → Stock updates  
-3. Log in as Manufacturer → View updated stock balances + requisition status
+3. Log in as Manufacturer → View updated stock balances + requisition status  
+
+The Presentation Lead (or all members) will guide the demo and explain workflows, highlighting any bonus features implemented.
