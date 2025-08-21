@@ -15,9 +15,9 @@
 
 In Kenya's FMCG and distribution space, we have three key players:
 
-- **Manufacturers:** Produce the goods  
-- **Distributors:** Hold and move stock to retail shops  
-- **Van Sales Teams:** Handle last-mile deliveries and sales  
+- **Manufacturers:** Produce goods in bulk  
+- **Distributors / Wholesalers:** Hold bulk stock from manufacturers and supply retail shops  
+- **Van Sales Teams / Field Reps:** Handle last-mile deliveries to retail shops, ensuring goods reach the end point  
 
 Currently, stock requests between retail shops and distributors often happen via WhatsApp messages or phone calls. This creates challenges:  
 
