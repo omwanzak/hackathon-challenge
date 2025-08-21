@@ -5,6 +5,12 @@
 
 ---
 
+## Getting Started
+
+**Important:** Please **fork this repository** before starting the challenge. This allows you to work independently without affecting the main repository and submit your solution via your forked repo.
+
+---
+
 ## Introduction
 
 In Kenya's FMCG and distribution space, we have three key players:
