@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const USERS = [
   {
@@ -25,6 +26,7 @@ export default function Login() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,6 +38,7 @@ export default function Login() {
     setTimeout(() => {
       setLoading(false);
       if (user) {
+        login(user); // set user in context
         navigate(`/${user.role}`);
       } else {
         setError('Invalid credentials. Please try again.');
