@@ -33,6 +33,7 @@ export default function DistributorDashboard() {
   const [stock, setStock] = useState(initialStock);
   const [requests, setRequests] = useState(initialRequests);
   const [toast, setToast] = useState(null);
+  const [stockChanges, setStockChanges] = useState({});
 
   const handleAction = (reqId, action) => {
     const req = requests.find((r) => r.id === reqId);
@@ -50,6 +51,7 @@ export default function DistributorDashboard() {
       )
     );
     if (action === 'approved') {
+      const stockItem = stock.find(s => s.product === req.product);
       setStock((prev) =>
         prev.map((s) =>
           s.product === req.product
@@ -57,6 +59,7 @@ export default function DistributorDashboard() {
             : s
         )
       );
+      setStockChanges(prev => ({...prev, [stockItem.id]: 'decrease'}));
       setToast({ type: 'success', msg: 'Request approved and stock updated.' });
     } else {
       setToast({ type: 'error', msg: 'Request rejected.' });
@@ -75,10 +78,17 @@ export default function DistributorDashboard() {
           </div>
         )}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Pending Requests Table */}
+          {/* Warehouse Stock Cards */}
+          <div>
+            <h3 className="text-lg font-semibold mb-2">Warehouse Stock</h3>
+            {stock.map((s) => (
+              <StockCard key={s.id} title={s.product} quantity={s.quantity} icon={"📦"} change={stockChanges[s.id]} />
+            ))}
+          </div>
+          {/* Requests Section */}
           <div>
             <h3 className="text-lg font-semibold mb-2">Pending Requests</h3>
-            <table className="w-full bg-white rounded shadow text-sm">
+            <table className="w-full bg-white rounded shadow text-sm mb-8">
               <thead>
                 <tr className="bg-gray-100">
                   <th className="p-2">Product</th>
@@ -114,13 +124,58 @@ export default function DistributorDashboard() {
                 )}
               </tbody>
             </table>
-          </div>
-          {/* Warehouse Stock Cards */}
-          <div>
-            <h3 className="text-lg font-semibold mb-2">Warehouse Stock</h3>
-            {stock.map((s) => (
-              <StockCard key={s.id} title={s.product} quantity={s.quantity} icon={"📦"} />
-            ))}
+
+            <h3 className="text-lg font-semibold mb-2">Approved Requests</h3>
+            <table className="w-full bg-white rounded shadow text-sm mb-8">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="p-2">Product</th>
+                  <th className="p-2">Quantity</th>
+                  <th className="p-2">Requester</th>
+                  <th className="p-2">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {requests.filter(r => r.status === 'approved').length === 0 ? (
+                  <tr><td colSpan={4} className="p-2 text-center text-gray-400">No approved requests</td></tr>
+                ) : (
+                  requests.filter(r => r.status === 'approved').map((r) => (
+                    <tr key={r.id}>
+                      <td className="p-2">{r.product}</td>
+                      <td className="p-2">{r.quantity}</td>
+                      <td className="p-2">{r.requester}</td>
+                      <td className="p-2">{r.date}</td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+
+            <h3 className="text-lg font-semibold mb-2">Rejected Requests</h3>
+            <table className="w-full bg-white rounded shadow text-sm">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="p-2">Product</th>
+                  <th className="p-2">Quantity</th>
+                  <th className="p-2">Requester</th>
+                  <th className="p-2">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {requests.filter(r => r.status === 'rejected').length === 0 ? (
+                  <tr><td colSpan={4} className="p-2 text-center text-gray-400">No rejected requests</td></tr>
+                ) : (
+                  requests.filter(r => r.status === 'rejected').map((r) => (
+                    <tr key={r.id}>
+                      <td className="p-2">{r.product}</td>
+                      <td className="p-2">{r.quantity}</td>
+                      <td className="p-2">{r.requester}</td>
+                      <td className="p-2">{r.date}</td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
