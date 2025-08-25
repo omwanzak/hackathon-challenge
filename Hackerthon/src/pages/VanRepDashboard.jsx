@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar.jsx';
-import StockCard from '../components/StockCard.jsx';
+import Navbar from '../Components/Navbar.jsx';
+import StockCard from '../Components/StockCard.jsx';
 
 // Sample van stock
 const initialVanStock = [
@@ -28,6 +28,15 @@ const initialRequests = [
 ];
 
 const VAN_CAPACITY = 30;
+
+const allProducts = [
+  'Delmonte Pineapple Juice',
+  'Delmonte Mango Juice',
+  'Delmonte Orange Juice',
+  'Coca-cola',
+  'Fanta Orange',
+  'Sprite',
+];
 
 export default function VanRepDashboard() {
   const [vanStock, setVanStock] = useState(initialVanStock);
@@ -71,7 +80,7 @@ export default function VanRepDashboard() {
     ]);
     setToast({ type: 'success', msg: 'Requisition submitted.' });
     setForm({ product: '', quantity: '' });
-    setTimeout(() => setToast(null), 2000);
+    setTimeout(() => setToast(null), 20000);
   };
 
   return (
@@ -79,11 +88,6 @@ export default function VanRepDashboard() {
       <Navbar role="van-rep" />
       <div className="p-6">
         <h2 className="text-2xl font-bold mb-4">Van Rep Dashboard</h2>
-        {toast && toast.type === 'success' && (
-          <div className="mb-4 px-4 py-2 rounded text-white bg-green-500">
-            {toast.msg}
-          </div>
-        )}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Van Stock Cards */}
           <div>
@@ -106,8 +110,14 @@ export default function VanRepDashboard() {
                   required
                 >
                   <option value="">Select product</option>
-                  {vanStock.map((s) => (
-                    <option key={s.id} value={s.product}>{s.product}</option>
+                  {allProducts.map((product) => (
+                    <option
+                      key={product}
+                      value={product}
+                      disabled={!vanStock.some((s) => s.product === product)}
+                    >
+                      {product}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -130,8 +140,8 @@ export default function VanRepDashboard() {
               >
                 Submit Request
               </button>
-              {toast && toast.type === 'error' && toast.msg === 'Van capacity exceeded.' && (
-                <div className="mt-2 px-4 py-2 rounded text-white bg-red-500 text-center">
+              {toast && (
+                <div className={`mt-2 px-4 py-2 rounded text-white text-center ${toast.type === 'success' ? 'bg-green-500' : 'bg-red-500'}`}>
                   {toast.msg}
                 </div>
               )}
