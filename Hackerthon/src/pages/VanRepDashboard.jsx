@@ -4,9 +4,11 @@ import StockCard from '../Components/StockCard.jsx';
 
 // Sample van stock
 const initialVanStock = [
-  { id: 1, product: 'Delmonte Pineapple Juice', quantity: 10 },
-  { id: 2, product: 'Delmonte Mango Juice', quantity: 8 },
-  { id: 3, product: 'Delmonte Orange Juice', quantity: 5 },
+  { id: 1, product: 'Delmonte Pineapple Juice', quantity: 10, change: 'increase' },
+  { id: 2, product: 'Delmonte Mango Juice', quantity: 8, change: 'decrease' },
+  { id: 3, product: 'Delmonte Orange Juice', quantity: 5, change: null },
+  { id: 4, product: 'Delmonte Mixed Berries', quantity: 15, change: 'increase' },
+  { id: 5, product: 'Delmonte Tropical Juice', quantity: 12, change: null },
 ];
 
 // Sample requests
@@ -33,9 +35,9 @@ const allProducts = [
   'Delmonte Pineapple Juice',
   'Delmonte Mango Juice',
   'Delmonte Orange Juice',
-  'Coca-cola',
-  'Fanta Orange',
-  'Sprite',
+  'Delmonte Mixed Berries',
+  'Delmonte Tropical Juice',
+  'Delmonte Guava Juice',
 ];
 
 export default function VanRepDashboard() {
@@ -93,7 +95,7 @@ export default function VanRepDashboard() {
           <div>
             <h3 className="text-lg font-semibold mb-2">Current Van Stock</h3>
             {vanStock.map((s) => (
-              <StockCard key={s.id} title={s.product} quantity={s.quantity} icon={"🚚"} />
+              <StockCard key={s.id} title={s.product} quantity={s.quantity} icon={"🚚"} change={s.change} />
             ))}
           </div>
           {/* New Requisition Form */}

@@ -4,9 +4,13 @@ import StockCard from '../Components/StockCard.jsx';
 
 // Sample warehouse stock
 const initialStock = [
-  { id: 1, product: 'Delmonte Pineapple Juice', quantity: 120 },
-  { id: 2, product: 'Delmonte Mango Juice', quantity: 80 },
-  { id: 3, product: 'Delmonte Orange Juice', quantity: 60 },
+  { id: 1, product: 'Delmonte Pineapple Juice', quantity: 120, change: 'increase' },
+  { id: 2, product: 'Delmonte Mango Juice', quantity: 80, change: 'decrease' },
+  { id: 3, product: 'Delmonte Orange Juice', quantity: 60, change: null },
+  { id: 4, product: 'Delmonte Apple Juice', quantity: 100, change: 'increase' },
+  { id: 5, product: 'Delmonte Tropical Juice', quantity: 70, change: null },
+  { id: 6, product: 'Delmonte Mixed Berries Juice', quantity: 50, change: 'decrease' },
+  { id: 7, product: 'Delmonte Guava Juice', quantity: 90, change: null },
 ];
 
 // Sample requisition requests

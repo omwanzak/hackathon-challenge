@@ -8,31 +8,48 @@ const manufacturerStock = [
   { id: 1, product: 'Delmonte Pineapple Juice', quantity: 900, change: 'increase', available: true, restockDate: null, restockAmount: null },
   { id: 2, product: 'Delmonte Mango Juice', quantity: 700, change: 'decrease', available: true, restockDate: null, restockAmount: null },
   { id: 3, product: 'Delmonte Orange Juice', quantity: 600, change: null, available: true, restockDate: null, restockAmount: null },
-  { id: 4, product: 'Coca-cola', quantity: 0, change: null, available: false, restockDate: '2025-09-15', restockAmount: 1000 },
-  { id: 5, product: 'Fanta Orange', quantity: 0, change: null, available: false, restockDate: '2025-09-10', restockAmount: 800 },
+  { id: 4, product: 'Delmonte Apple Juice', quantity: 800, change: 'increase', available: true, restockDate: null, restockAmount: null },
+  { id: 5, product: 'Delmonte Tropical Juice', quantity: 0, change: null, available: false, restockDate: '2025-09-10', restockAmount: 800 },
+  { id: 6, product: 'Delmonte Mixed Berries Juice', quantity: 0, change: null, available: false, restockDate: '2025-09-15', restockAmount: 1000 },
+  { id: 7, product: 'Delmonte Guava Juice', quantity: 500, change: null, available: true, restockDate: null, restockAmount: null },
 ];
 const distributorStock = [
   { id: 1, product: 'Delmonte Pineapple Juice', quantity: 120, change: 'decrease' },
   { id: 2, product: 'Delmonte Mango Juice', quantity: 80, change: null },
   { id: 3, product: 'Delmonte Orange Juice', quantity: 60, change: 'increase' },
+  { id: 4, product: 'Delmonte Apple Juice', quantity: 100, change: 'increase' },
+  { id: 5, product: 'Delmonte Tropical Juice', quantity: 70, change: null },
+  { id: 6, product: 'Delmonte Mixed Berries Juice', quantity: 50, change: 'decrease' },
+  { id: 7, product: 'Delmonte Guava Juice', quantity: 90, change: null },
 ];
 const vanStock = [
   { id: 1, product: 'Delmonte Pineapple Juice', quantity: 10, change: null },
   { id: 2, product: 'Delmonte Mango Juice', quantity: 8, change: 'decrease' },
   { id: 3, product: 'Delmonte Orange Juice', quantity: 5, change: 'increase' },
+  { id: 4, product: 'Delmonte Apple Juice', quantity: 12, change: 'increase' },
+  { id: 5, product: 'Delmonte Tropical Juice', quantity: 9, change: null },
+  { id: 6, product: 'Delmonte Mixed Berries Juice', quantity: 7, change: 'decrease' },
+  { id: 7, product: 'Delmonte Guava Juice', quantity: 11, change: null },
 ];
 const requisitions = [
-  { id: 301, product: 'Delmonte Pineapple Juice', quantity: 30, status: 'pending', requester: 'Alex', date: '2025-08-22' },
-  { id: 302, product: 'Delmonte Mango Juice', quantity: 20, status: 'pending', requester: 'Jane', date: '2025-08-21' },
+  { id: 301, product: 'Delmonte Pineapple Juice', quantity: 30, status: 'approved', requester: 'Alex', date: '2025-08-22' },
+  { id: 302, product: 'Delmonte Mango Juice', quantity: 20, status: 'rejected', requester: 'Jane', date: '2025-08-21' },
   { id: 303, product: 'Delmonte Orange Juice', quantity: 10, status: 'pending', requester: 'Mike', date: '2025-08-20' },
+  { id: 304, product: 'Delmonte Apple Juice', quantity: 25, status: 'approved', requester: 'Alex', date: '2025-08-23' },
+  { id: 305, product: 'Delmonte Tropical Juice', quantity: 15, status: 'rejected', requester: 'Jane', date: '2025-08-22' },
 ];
 
 export default function ManagerDashboard() {
-  const [activity] = useState([
-    { id: 1, action: 'approved', product: 'Delmonte Mango Juice', quantity: 20, user: 'Rayyidh', date: '2025-08-21' },
-    { id: 2, action: 'rejected', product: 'Delmonte Orange Juice', quantity: 10, user: 'Rayyidh', date: '2025-08-20' },
-    { id: 3, action: 'approved', product: 'Delmonte Pineapple Juice', quantity: 30, user: 'Rayyidh', date: '2025-08-19' },
-  ]);
+  const activity = requisitions
+    .filter(r => r.status === 'approved' || r.status === 'rejected')
+    .map(r => ({
+      id: r.id,
+      action: r.status,
+      product: r.product,
+      quantity: r.quantity,
+      user: r.requester,
+      date: r.date,
+    }));
   const [view, setView] = useState('manager');
   const [activeModal, setActiveModal] = useState(null);
 
