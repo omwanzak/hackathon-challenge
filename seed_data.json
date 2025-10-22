@@ -1,0 +1,129 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Alex Mwangi",
+      "role": "van_rep",
+      "email": "alex@techsisters.co.ke",
+      "password": "password123",
+      "van_capacity": 100
+    },
+    {
+      "id": 2,
+      "name": "Rayyidh Omar",
+      "role": "distributor",
+      "email": "rayyidh@bestjuice.co.ke",
+      "password": "password123"
+    },
+    {
+      "id": 3,
+      "name": "Mariam Abdi",
+      "role": "manufacturer",
+      "email": "mariam@solutech.co.ke",
+      "password": "password123"
+    }
+  ],
+
+  "products": [
+    {
+      "id": 1,
+      "name": "Delmonte Pineapple Juice 500ml",
+      "unit": "packets"
+    },
+    {
+      "id": 2,
+      "name": "Twist Cola 330ml",
+      "unit": "bottles"
+    },
+    {
+      "id": 3,
+      "name": "Sunrise Bread 400g",
+      "unit": "loaves"
+    }
+  ],
+
+  "stock": {
+    "manufacturer": [
+      {
+        "product_id": 1,
+        "quantity": 1000
+      },
+      {
+        "product_id": 2,
+        "quantity": 2000
+      },
+      {
+        "product_id": 3,
+        "quantity": 1500
+      }
+    ],
+    "distributor": [
+      {
+        "user_id": 2,
+        "product_id": 1,
+        "quantity": 300
+      },
+      {
+        "user_id": 2,
+        "product_id": 2,
+        "quantity": 500
+      },
+      {
+        "user_id": 2,
+        "product_id": 3,
+        "quantity": 200
+      }
+    ],
+    "van": [
+      {
+        "user_id": 1,
+        "product_id": 1,
+        "quantity": 20
+      },
+      {
+        "user_id": 1,
+        "product_id": 2,
+        "quantity": 30
+      },
+      {
+        "user_id": 1,
+        "product_id": 3,
+        "quantity": 10
+      }
+    ]
+  },
+
+  "requisitions": [
+    {
+      "id": 1,
+      "van_rep_id": 1,
+      "distributor_id": 2,
+      "product_id": 1,
+      "quantity": 30,
+      "status": "pending",
+      "date_requested": "2025-08-21"
+    },
+    {
+      "id": 2,
+      "van_rep_id": 1,
+      "distributor_id": 2,
+      "product_id": 2,
+      "quantity": 20,
+      "status": "approved",
+      "date_requested": "2025-08-21"
+    }
+  ],
+
+  "stock_movements": [
+    {
+      "id": 1,
+      "product_id": 2,
+      "from_role": "distributor",
+      "from_user_id": 2,
+      "to_role": "van_rep",
+      "to_user_id": 1,
+      "quantity": 20,
+      "date": "2025-08-21"
+    }
+  ]
+}
