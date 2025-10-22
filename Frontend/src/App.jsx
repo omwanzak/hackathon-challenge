@@ -16,7 +16,7 @@ export default function App() {
 					<Route path="/login" element={<Login />} />
 					<Route path="/van-rep" element={<VanRepDashboard />} />
 					<Route path="/distributor" element={<DistributorDashboard />} />
-					<Route path="/manager" element={<ManagerDashboard />} />
+					<Route path="/manufacturer" element={<ManagerDashboard />} />
 				</Routes>
 			</BrowserRouter>
 	);

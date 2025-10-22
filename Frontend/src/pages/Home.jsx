@@ -1,19 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import RoleDialog from '../Components/RoleDialog.jsx';
 
 const bgImage = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80'; // Example image
 
 export default function Home() {
   const navigate = useNavigate();
 
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const handleGetStarted = () => setDialogOpen(true);
-  const handleRoleSelect = (role) => {
-    setDialogOpen(false);
-    if (role === 'distributor') navigate('/login?role=distributor');
-    else if (role === 'van-rep') navigate('/login?role=van-rep');
-    else if (role === 'manager') navigate('/login?role=manager');
+  const handleGetStarted = () => {
+    navigate('/login');
   };
 
   return (
@@ -35,7 +29,7 @@ export default function Home() {
           Get Started
         </button>
       </div>
-      <RoleDialog open={dialogOpen} onSelect={handleRoleSelect} onClose={() => setDialogOpen(false)} />
+  {/* Removed RoleDialog popup */}
     </div>
   );
 }

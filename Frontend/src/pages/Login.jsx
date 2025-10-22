@@ -21,7 +21,8 @@ export default function Login() {
       setLoading(false);
       if (res.data.success) {
         login(res.data.user);
-  navigate(`/${res.data.user.role.replace('_', '-')}`);
+  const roleRoute = res.data.user.role === 'manufacturer' ? 'manager' : res.data.user.role.replace('_', '-');
+  navigate(`/${roleRoute}`);
       } else {
         setError('Invalid credentials. Please try again.');
       }
@@ -69,9 +70,9 @@ export default function Login() {
           </button>
         </form>
         <div className="mt-6 text-xs text-gray-500">
-          <div>Van Rep: alex@vansales.com / password123</div>
-          <div>Distributor: rayyidh@bestjuice.com / password123</div>
-          <div>Manager: manager@manufacturer.com / password123</div>
+          <div>Van Rep: alex@bestjuice.co.ke / password123</div>
+          <div>Distributor: rayyidh@bestjuice.co.ke / password123</div>
+          <div>Manager: mariam@solutech.co.ke / password123</div>
         </div>
       </div>
     </div>
