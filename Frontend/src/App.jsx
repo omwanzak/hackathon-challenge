@@ -17,6 +17,8 @@ export default function App() {
 					<Route path="/van-rep" element={<VanRepDashboard />} />
 					<Route path="/distributor" element={<DistributorDashboard />} />
 					<Route path="/manufacturer" element={<ManagerDashboard />} />
+					{/* support both /manager and /manufacturer (seed data uses 'manufacturer') */}
+					<Route path="/manager" element={<ManagerDashboard />} />
 				</Routes>
 			</BrowserRouter>
 	);
